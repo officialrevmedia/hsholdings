@@ -1259,3 +1259,136 @@ section{padding:var(--s-9) 0}
 }
 .nav-links a:not(.nav-cta):hover::after{width:100%}
 .nav-links a.active::after{width:100%}
+
+/* ============================================================
+   Readability pass (overrides) - ensures all text meets
+   comfortable contrast and weight for legibility
+   ============================================================ */
+:root{
+  --slate:#515B68;        /* darkened from #6F7A86 for AA contrast on light */
+  --slate-light:#6E7884;
+}
+
+/* Restore comfortable body weights (elegance pass had made these too thin) */
+.hero-sub{font-weight:400;color:rgba(247,244,239,0.92)}
+.lead{font-weight:400}
+.page-hero .hero-sub{color:rgba(247,244,239,0.9)}
+
+/* Secondary text on dark surfaces: raise opacity for legibility */
+.on-dark p{color:rgba(247,244,239,0.86)}
+.stat-label{color:rgba(247,244,239,0.78)}
+.nav-brand-text small{color:rgba(247,244,239,0.7)}
+.office-addr{color:rgba(247,244,239,0.82)}
+.office-card .office-addr{color:rgba(247,244,239,0.82)}
+.surface-charcoal .company-meta,.surface-navy .company-meta{color:rgba(247,244,239,0.8)}
+.surface-charcoal .service-body p,.surface-navy .service-body p{color:rgba(247,244,239,0.82)}
+.pillar p{color:rgba(247,244,239,0.84)}
+.contact-info p{color:rgba(247,244,239,0.85)}
+.contact-direct .value[style*="rgba"]{color:rgba(247,244,239,0.85) !important}
+.industry-label .ind-desc{color:rgba(247,244,239,0.85)}
+.footer-list a{color:rgba(247,244,239,0.74)}
+.footer-contact{color:rgba(247,244,239,0.74)}
+.footer-brand p{color:rgba(247,244,239,0.72)}
+.footer-bottom{color:rgba(247,244,239,0.64)}
+.page-hero-breadcrumb{color:rgba(247,244,239,0.66)}
+
+/* Gold eyebrow: deepen on light backgrounds where the lighter gold reads faint */
+.surface-warm .eyebrow,.surface-soft .eyebrow,.surface-warm .hero-eyebrow{color:#94793F}
+
+/* Leader photos: keep natural and clear */
+.leader-photo img{filter:saturate(0.96) contrast(1.01)}
+
+/* Slightly stronger body text on light surfaces for inline secondary copy */
+.company-meta{color:#515B68}
+.leader-role{color:#515B68}
+.small.muted,.muted{color:#515B68}
+
+/* ============================================================
+   FIX: headings on dark surfaces were inheriting dark ink
+   (dark-on-dark, barely legible). Render them in brand gold.
+   ============================================================ */
+.page-hero h1,
+.surface-navy h2,
+.surface-charcoal h2{
+  color:var(--gold);
+}
+/* keep the homepage flagship hero headline white (already correct) */
+.hero h1{color:var(--warm-white)}
+
+/* ============================================================
+   Client logo wall: unified premium treatment
+   All logos normalized to a single monochrome silhouette so the
+   mixed-colour set (incl. the white Lazzurra mark) reads consistently.
+   ============================================================ */
+.logo-wall{
+  grid-template-columns:repeat(3,1fr);   /* balanced 3x3 for 9 clients */
+  border:0;
+  gap:var(--s-2);
+  max-width:1080px;
+  margin:0 auto;
+}
+.client-logo{
+  aspect-ratio:5/2.6;
+  border:1px solid rgba(17,20,24,0.08);
+  border-radius:var(--r-md);
+  background:rgba(255,255,255,0.5);
+  padding:var(--s-4) var(--s-5);
+  transition:border-color 450ms var(--ease), background 450ms var(--ease), transform 450ms var(--ease);
+}
+.client-logo:hover{
+  background:#fff;
+  border-color:rgba(184,155,94,0.45);
+  transform:translateY(-3px);
+  box-shadow:0 24px 48px -28px rgba(7,17,31,0.28);
+}
+.client-logo img,
+.client-logo.tile-dark img{
+  max-width:80%;
+  max-height:84px;                       /* enlarged */
+  width:auto;
+  filter:brightness(0);                  /* uniform charcoal silhouette */
+  opacity:0.42;
+  transition:opacity 450ms var(--ease), transform 450ms var(--ease), filter 450ms var(--ease);
+}
+.client-logo:hover img,
+.client-logo.tile-dark:hover img{
+  opacity:0.9;
+  transform:scale(1.05);
+}
+/* neutralize the old dark-tile special case (Lazzurra) so it matches the rest */
+.client-logo.tile-dark{background:rgba(255,255,255,0.5)}
+.client-logo.tile-dark:hover{background:#fff}
+
+@media(max-width:820px){
+  .logo-wall{grid-template-columns:repeat(2,1fr)}
+  .client-logo img{max-height:64px}
+}
+@media(max-width:480px){
+  .logo-wall{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ============================================================
+   Operational footprint map: refined container
+   ============================================================ */
+.map-visual{
+  aspect-ratio:560/470;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(184,155,94,0.06) 0%, transparent 62%),
+    linear-gradient(180deg, rgba(247,244,239,0.015), rgba(7,17,31,0));
+  border:1px solid rgba(215,218,223,0.10);
+  border-radius:var(--r-lg);
+  padding:var(--s-3);
+  position:relative;
+  overflow:hidden;
+}
+.map-visual::before{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:var(--r-lg);
+  box-shadow:inset 0 1px 0 rgba(247,244,239,0.05);
+  pointer-events:none;
+}
+.geo-map{width:100%;height:100%;display:block}
+@media (prefers-reduced-motion:reduce){
+  .geo-map circle animate{display:none}
+}
