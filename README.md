@@ -1,30 +1,30 @@
-# H&S Holdings Group  /  Website
+# H&S Group  /  Website
 
-Prepared by revmedia for H&S Holdings Inc. A static, SEO-optimized multi-page site built for direct deployment to GitHub Pages, Netlify, or any static host.
+Prepared by revmedia for H&S Group Inc. A static, SEO-optimized multi-page site built for direct deployment to GitHub Pages, Netlify, or any static host.
 
 ## What's inside
 
-* **16 HTML pages** covering home, about, the group overview, 6 company detail pages, services, industries, leadership, clients, why H&S, careers, and contact.
+* **16 HTML pages** covering home, about, the group overview, 6 company detail pages (HS Construction, H&S Services, Align Interiors, Purus, BlueSky, Waterr), services, industries, leadership, clients, why H&S, careers, and contact.
 * **Shared design system** in `assets/css/main.css` (design tokens, components, responsive rules).
 * **Shared interactions** in `assets/js/main.js` (sticky nav, mobile menu, scroll reveal, counter animations, form handling, parallax).
 * **Full SEO meta**, Open Graph tags, canonical URLs, and JSON-LD on every page.
 * **`robots.txt`** and **`sitemap.xml`** included for search engine indexing.
-* **Custom SVG favicon** with the H&S monogram in brand colors.
+* **Custom SVG favicon** with the H&S lion monogram in brand colors.
 
 ## File structure
 
 ```
-hsholdings/
+hsgroup/
   index.html
   about/index.html
   group-companies/
     index.html
     hs-construction/index.html
+    hs-services/index.html
     align-interiors/index.html
     purus/index.html
-    stella-hygiene/index.html
     bluesky/index.html
-    hash-hospitality/index.html
+    waterr/index.html
   services/index.html
   industries/index.html
   leadership/index.html
@@ -54,7 +54,7 @@ hsholdings/
 ### Option A. GitHub Pages
 
 1. Create a new repository on GitHub.
-2. Copy the entire `hsholdings/` directory contents into the repo root.
+2. Copy the entire `hsgroup/` directory contents into the repo root.
 3. Commit and push to `main`.
 4. In repo settings, enable Pages from the `main` branch root.
 5. Point the `hsholdings.ca` domain at GitHub Pages via your DNS provider (CNAME record).

@@ -1,5 +1,5 @@
 /* =============================================================================
-   H&S Holdings Group  /  Design System
+   H&S Group  /  Design System
    Prepared by revmedia
    ============================================================================= */
 
@@ -1391,4 +1391,67 @@ section{padding:var(--s-9) 0}
 .geo-map{width:100%;height:100%;display:block}
 @media (prefers-reduced-motion:reduce){
   .geo-map circle animate{display:none}
+}
+
+/* ============================================================
+   H&S Group  ·  Company marquee belt + text logo chip
+   ============================================================ */
+.group-belt{
+  background:var(--navy);
+  border-top:1px solid rgba(184,155,94,0.22);
+  border-bottom:1px solid rgba(184,155,94,0.22);
+  overflow:hidden;
+  padding:20px 0;
+}
+.group-belt-track{
+  display:flex;
+  width:max-content;
+  animation:belt-scroll 34s linear infinite;
+}
+.group-belt:hover .group-belt-track{animation-play-state:paused}
+.group-belt-item{
+  display:inline-flex;
+  align-items:center;
+  gap:34px;
+  padding-right:34px;
+  white-space:nowrap;
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:1.0625rem;
+  letter-spacing:0.02em;
+  color:var(--warm-white);
+}
+.group-belt-item .diamond{
+  color:var(--gold);
+  font-size:0.7em;
+  transform:translateY(-1px);
+}
+@keyframes belt-scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion: reduce){
+  .group-belt-track{animation:none;flex-wrap:wrap;justify-content:center;gap:18px}
+}
+
+/* Text-based company chip (H&S Services, pending logo) */
+.company-logo .logo-chip-text{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.125rem;
+  color:var(--navy);
+  letter-spacing:-0.01em;
+  gap:10px;
+}
+.company-logo .logo-chip-text .chip-tbd{
+  font-family:var(--font-body);
+  font-size:0.625rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  background:rgba(184,155,94,0.14);
+  border:1px solid rgba(184,155,94,0.4);
+  border-radius:var(--r-pill);
+  padding:3px 9px;
 }
